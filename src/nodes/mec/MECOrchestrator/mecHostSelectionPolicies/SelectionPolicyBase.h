@@ -1,0 +1,39 @@
+//
+//                  Simu5G
+//
+// Authors: Giovanni Nardini, Giovanni Stea, Antonio Virdis (University of Pisa)
+//
+// This file is part of a software released under the license included in file
+// "license.pdf". Please read LICENSE and README files before using it.
+// The above files and the present reference are part of the software itself,
+// and cannot be removed from it.
+//
+
+#ifndef NODES_MEC_MECORCHESTRATOR_SELECTIONPOLICYBASE_H_
+#define NODES_MEC_MECORCHESTRATOR_SELECTIONPOLICYBASE_H_
+
+#include "nodes/mec/MECOrchestrator/MecOrchestrator.h"
+#include "nodes/mec/MECOrchestrator/ApplicationDescriptor/ApplicationDescriptor.h"
+
+
+class MecOrchestrator;
+
+class SelectionPolicyBase
+{
+    friend class MecOrchestrator;
+
+  protected:
+    MecOrchestrator* mecOrchestrator_;
+    virtual cModule* findBestMecHost(const ApplicationDescriptor&) = 0;
+    void finish(){}
+    void setParameters(const ApplicationDescriptor &appDesc){}
+
+
+
+  public:
+    SelectionPolicyBase(MecOrchestrator* mecOrchestrator){mecOrchestrator_ = mecOrchestrator;}
+    virtual ~SelectionPolicyBase() {}
+    virtual void receiveSignal(cComponent *source, simsignal_t signalID, cObject *value) {}
+};
+
+#endif /* NODES_MEC_MECORCHESTRATOR_SELECTIONPOLICYBASE_H_ */
