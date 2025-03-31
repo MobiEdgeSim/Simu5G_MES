@@ -1,6 +1,4 @@
-# Simu5G-Enhanced
-
-This repository is a customized version of [Simu5G (v1.2.2)](https://github.com/Unipisa/Simu5G), extended with additional functionalities to enhance mobile edge computing (MEC) simulations.
+# Simu5G-MobiEdgeSim
 
 ## Overview
 
